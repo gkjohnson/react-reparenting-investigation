@@ -20,3 +20,4 @@ An investigation into the performance of reparenting dom elements, the impact of
 
 - Create worst-case scenario with timing
 - Test in `production` scenario
+- Try using CSS grid to update the postition of an element
