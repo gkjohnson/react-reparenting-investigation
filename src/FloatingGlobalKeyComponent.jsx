@@ -44,8 +44,7 @@ export default class FloatingGlobalKeyComponent extends GlobalKeyComponent {
 
         };
 
-        if (!this._fragment.childElementCount) render(this.renderContents(), this._fragment, _do);
-        else _do();
+        render(this.renderContents(), this._fragment, _do);
 
     }
 
