@@ -9,10 +9,13 @@ function getElementFragment(key) {
     if (!frag) {
 
         frag = document.createElement('div');
+        frag.setAttribute('fragment', true);
+        frag.style.isolation = 'isolate';
         elementMap[key] = frag;
 
     }
 
+    frag.style.visibility = '';
     unusedKeys.delete(key);
     return frag;
 
@@ -20,6 +23,7 @@ function getElementFragment(key) {
 
 function markKeyUnused(key) {
 
+    elementMap[key].style.visibility = 'hidden';
     unusedKeys.add(key);
 
 }
@@ -39,6 +43,12 @@ export default class GlobalKeyComponent extends Component {
     static cleanCache() {
 
         cleanCache();
+
+    }
+
+    static getElementFragment(key) {
+
+        return getElementFragment(key);
 
     }
 

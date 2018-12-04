@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import GlobalKeyComponent from '../src/GlobalKeyComponent.jsx';
+import FloatingGlobalKeyComponent from '../src/FloatingGlobalKeyComponent.jsx';
 
 function eventCallback(e) {
     console.log(e);
@@ -12,7 +13,7 @@ function renderStuff(props) {
         depth,
     } = props;
 
-    const listItems = (new Array(count * 100)).fill().map((e, i) => (
+    const listItems = (new Array(count * 20)).fill().map((e, i) => (
         <li key={i}>
             <label>
                 <span>{ `${ i } : ` }</span>
@@ -32,12 +33,12 @@ function renderStuff(props) {
         </li>
     ));
 
-    return (<div style={ { border: '1px solid red', width: '500px', height: '500px', overflow: 'hidden' } }>
+    return (<div style={ { border: '1px solid red', height: '250px', overflow: 'hidden' } }>
         <div>HELLO</div>
-        <ul style={ { maxHeight: '100px', overflow: 'auto' } }>
+        <ul style={ { maxHeight: '100px', overflow: 'auto', willChange: 'scroll-position' } }>
             { listItems }
         </ul>
-        <ul style={ { maxHeight: '500px', overflow: 'auto' } }>
+        <ul style={ { maxHeight: '500px', overflow: 'auto', willChange: 'scroll-position' } }>
             { nestedComplexComponents }
         </ul>
     </div>);
@@ -55,9 +56,21 @@ export class NativeComplexComponent extends Component {
 }
 
 export class GlobalKeyComplexComponent extends GlobalKeyComponent {
+
     renderContents() {
 
         return renderStuff(this.props);
 
     }
+
+}
+
+export class FloatingGlobalKeyComplexComponent extends FloatingGlobalKeyComponent {
+
+    renderContents() {
+
+        return renderStuff(this.props);
+
+    }
+
 }
