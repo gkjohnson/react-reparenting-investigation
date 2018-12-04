@@ -6,6 +6,8 @@
     "example": "example"
   },
   "scripts": {
+    "start": "npm run build && static-server",
+    "build": "parcel build example/index.html --public-url ./ --out-dir example/build --no-cache --no-source-maps --no-minify",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,5 +19,18 @@
   "bugs": {
     "url": "https://github.com/gkjohnson/react-global-key/issues"
   },
-  "homepage": "https://github.com/gkjohnson/react-global-key#readme"
+  "browserslist": [
+    "last 1 Firefox versions"
+  ],
+  "homepage": "https://github.com/gkjohnson/react-global-key#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^5.9.0",
+    "parcel-bundler": "^1.9.7",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "static-server": "^2.2.1"
+  }
 }
