@@ -1,4 +1,4 @@
-# react-global-key
+# react-reparenting-investigation
 
 An investigation into the performance of reparenting dom elements, the impact of repainting and layout, and how to mitigate the problems in React.
 
