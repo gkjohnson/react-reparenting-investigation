@@ -8,7 +8,7 @@ function getElementFragment(key) {
     let frag = elementMap[key];
     if (!frag) {
 
-        frag = document.createDocumentFragment();
+        frag = document.createElement('div');
         elementMap[key] = frag;
 
     }
@@ -34,7 +34,7 @@ function cleanCache() {
 
 }
 
-export class GlobalKeyComponent extends Component {
+export default class GlobalKeyComponent extends Component {
 
     static cleanCache() {
 
@@ -61,11 +61,11 @@ export class GlobalKeyComponent extends Component {
         this._fragment = getElementFragment(this.props.globalKey);
         this._container.appendChild(this._fragment);
 
+        this.componentDidUpdate();
     }
 
     componentDidUpdate() {
 
-        render(this.renderContents(), this._fragment);
 
     }
 
