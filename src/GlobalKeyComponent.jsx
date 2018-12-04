@@ -45,14 +45,12 @@ export default class GlobalKeyComponent extends Component {
     /* Life Cycle Functions */
     render() {
 
-        const variant = this.props.variant || 'div';
         const globalKey = this.props.globalKey || null;
-
         if (!globalKey) {
             console.warn('GlobalKeyComponent: A globalKey must be provided.');
         }
 
-        return (<variant ref = { el => this._container = el }></variant>);
+        return (<div ref = { el => this._container = el }></div>);
 
     }
 
@@ -66,6 +64,7 @@ export default class GlobalKeyComponent extends Component {
 
     componentDidUpdate() {
 
+        render(this.renderContents(), this._fragment);
 
     }
 
