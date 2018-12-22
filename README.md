@@ -9,6 +9,12 @@ An investigation into the performance of reparenting dom elements, the impact of
 - Moving elements with webgl contexts that would get lost and reinitialized if rerendered.
 - Moving iframes that will get reinitialized if the element is removed from the tree.
 
+## Findings
+
+- CSS layout update dominates the update time when reparenting anyway so there may not be a lot gained in terms of re-render performance.
+- Virtualizing the rendering can help improve the render time (both layout and react rendering).
+- Keeping floating elements and adjusting them via css `transform` gives the best performance gains.
+
 ## How To Run
 
 - Pull repo
